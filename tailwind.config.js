@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'thingstodo': '#5271ff'
+        'thingstodo': '#5271ff',
+        'footer' : '#181823'
       }
      
     },
