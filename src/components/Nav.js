@@ -2,7 +2,7 @@ import Image from "next/image"
 import biglogo from "../assests/logoxl.png"
 function Nav() {
   return (
-<div className=' flex items-center justify-between'>
+<div className=' p-4 flex items-center justify-between'>
        <div className='flex items-center space-x-4 '>
         <Image src={biglogo} alt="logo" className='w-[90px] md:w-[100px] ' />
         <div className='md:flex hidden space-x-3 text-sm'>

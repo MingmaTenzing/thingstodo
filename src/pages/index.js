@@ -5,6 +5,19 @@ import Nav from "@/components/Nav";
 import todo from "../assests/todocolor.svg";
 import womencalender from "../assests/womencalender.svg";
 import tasks from "../assests/taskss.svg";
+import visualdata from "../assests/visualdata.svg";
+import opinion from "../assests/opinion.svg";
+import review from "../assests/Review.png";
+import review1 from "../assests/Review (1).png";
+import review2 from "../assests/Review (2).png";
+import review3 from "../assests/Review (3).png";
+import review4 from "../assests/Review (4).png";
+import socialmedia from "../assests/social media.svg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import { ChatBubbleLeftEllipsisIcon } from '@heroicons/react/24/outline'
+
+
 
 export default function Home() {
   return (
@@ -16,7 +29,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="p-4 ">
+      <main className=" ">
         <Nav />
         <div className=" md:space-x-2 lg:space-x-10 mt-20 md:mt-10 flex flex-col sm:flex-row sm:justify-center sm:space-x-6 items-center space-y-10">
           <div className=" w-full max-w-[400px] md:max-w-[500px] space-y-2 md:space-y-3">
@@ -70,6 +83,81 @@ export default function Home() {
           </div>
 
           
+        </div>
+
+
+        {/* VISUAL DATA SECTION*/}
+        <div className="flex flex-col justify-center items-center sm:flex-row  md:space-x-10 space-y-8 mt-20 ">
+
+          <div className="space-y-3 w-[400px]">
+            <h1 className="font-[900] text-[30px] sm:text-[38px]  text-center sm:text-start"> <span className=" text-thingstodo">Visual Data</span>  for you to analyze </h1>
+            <h1 className="text-sm opacity-60 text-center sm:text-start max-w-[300px] m-auto sm:m-0"> We provide you real time visual data of your tasks pending, completed, or upcoming. </h1>
+
+          </div>
+
+          <div>
+            <Image src={visualdata} width={100} height={100} className="w-[250px]  md:w-[350px]" />
+
+          </div>
+
+        </div>
+
+
+        {/* SHARE ACHIEVEMENTS*/}
+        <div className="flex flex-col justify-center items-center sm:flex-row-reverse  space-y-8 mt-20 ">
+     
+
+          <div className="space-y-3 w-[400px] ">
+            <h1 className="font-[900] text-[30px] sm:text-[38px]  text-center sm:text-start">Share your <span className=" text-thingstodo">  achievements</span> </h1>
+            <h1 className="text-sm opacity-60 text-center sm:text-start max-w-[300px] m-auto sm:m-0"> Share you achievements and motivate others to get organized as well.</h1>
+
+          </div>
+          <div>
+            <Image src={socialmedia} width={100} height={100} className="w-[250px]  md:w-[350px] sm:mr-10" />
+
+          </div>
+
+         
+
+        </div>
+
+
+        
+        {/* CLIENT REVIEWS */}
+        <div className="w-full p-5">
+
+        <div className="md:flex border rounded-lg sm:rounded-3xl mt-20  bg-thingstodo text-white">
+
+          <div className="p-10">
+            <div className="flex justify-between items-center">
+            <h1 className="font-semibold md:text-xl "> Let's see what our clients say about us </h1>
+            <ChatBubbleLeftEllipsisIcon className="w-9" />
+         </div>
+         <div className="hidden md:flex">
+            <Image src={opinion} width={100} height={100} className="w-[250px]" />
+        </div>
+          </div>
+
+          <div>
+
+          <Carousel className="p-4" >
+            <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
+              <Image src={review} width={400} height={400} className='w-10' />
+            </div>
+            <div>
+              hello 
+            </div>
+            <div>
+              goodbye 
+            </div>
+            
+            
+          </Carousel>
+          </div>
+          
+          
+
+        </div>
         </div>
       </main>
     </div>
