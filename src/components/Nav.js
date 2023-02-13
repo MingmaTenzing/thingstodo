@@ -1,6 +1,8 @@
 import Image from "next/image"
+import { useRouter } from "next/router"
 import biglogo from "../assests/logoxl.png"
 function Nav() {
+  const router = useRouter();
   return (
 <div className=' p-4 flex items-center justify-between'>
        <div className='flex items-center space-x-4 '>
@@ -15,7 +17,7 @@ function Nav() {
            </div>
            <div className='flex space-x-2'>
            <button className='border py-1 px-2 md:py-2 md:px-3 rounded-lg text-sm'>Log in</button>
-           <button className='border py-1 px-2  md:py-2 md:px-3 rounded-lg text-sm bg-thingstodo text-white'>Sign up</button>
+           <button className='border py-1 px-2  md:py-2 md:px-3 rounded-lg text-sm bg-thingstodo text-white' onClick={() => router.push('/signup') } >Sign up</button>
       </div>
       </div>
   )
