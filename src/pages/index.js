@@ -139,9 +139,9 @@ export default function Home() {
         </div>
           </div>
 
-          <div>
+          <div className="md:mt-10 md:w-[300px] lg:w-[300px]">
 
-          <Carousel className="p-4 md:p-0 md:mr-10 md:mt-10 md:w-[300px] lg:w-[300px]" >
+          <Carousel className="p-4 md:p-0 md:mr-10 " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
               <Image src={review} width={400} height={400} className='w-10' />
             </div>
