@@ -139,23 +139,23 @@ export default function Home() {
 
         
         {/* CLIENT REVIEWS */}
-        <div className="w-full p-5 mt-20  ">
+        <div className="w-full p-10 mt-20  ">
 
-        <div className="md:w-[700px] lg:w-[800px] md:m-auto md:flex md:justify-center md:items-center border rounded-lg md:rounded-3xl sm:rounded-3xl mt-20  bg-thingstodo text-white">
+        <div className="md:space-x-5 md:w-[700px] lg:w-[800px] md:m-auto md:flex md:justify-center md:items-center border rounded-lg md:rounded-3xl sm:rounded-3xl mt-20  bg-thingstodo text-white">
 
-          <div className="p-10 flex flex-col items-center">
-            <div className="flex justify-between items-center">
+          <div className=" flex flex-col items-center">
+            <div className="flex justify-between items-center md:max-w-[300px] mt-10 md:mt-0">
             <h1 className="font-semibold md:text-2xl "> Let&apos;s see what our clients say about us </h1>
            
          </div>
-         <div className="hidden md:flex pt-10">
-            <Image src={opinion} width={100} height={100} alt='' className="w-[250px]" />
+         <div className=" hidden md:flex pt-10">
+            <Image src={opinion} width={100} height={100} alt='' className="w-[200px]" />
         </div>
           </div>
 
           <div className="  md:mt-10 md:w-[300px] lg:w-[300px]   ">
 
-          <Carousel className="p-4 md:p-0 md:mr-10 " >
+          <Carousel className="p-4 md:p-0  " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
               <Image src={review} width={400} height={400}  alt='' className='w-10' />
             </div>
