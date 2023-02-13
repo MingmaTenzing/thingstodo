@@ -30,8 +30,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className=" ">
+      
         <Nav />
+        <main className="p-4 ">
         <div className=" md:space-x-2 lg:space-x-10 mt-20 md:mt-10 flex flex-col sm:flex-row sm:justify-center sm:space-x-6 items-center space-y-10">
           <div className=" w-full max-w-[400px] md:max-w-[500px] space-y-2 md:space-y-3">
             <p className="   text-[30px] text-center font-[900] sm:text-[38px]  sm:text-start md:text-[38px]">
@@ -127,7 +128,7 @@ export default function Home() {
 
         
         {/* CLIENT REVIEWS */}
-        <div className="w-full p-5 mt-20 border ">
+        <div className="w-full p-5 mt-20  ">
 
         <div className="md:w-[700px] lg:w-[800px] md:m-auto md:flex md:justify-center md:items-center border rounded-lg md:rounded-3xl sm:rounded-3xl mt-20  bg-thingstodo text-white">
 
@@ -172,6 +173,8 @@ export default function Home() {
         </div>
       </main>
       <Footer/>
+    
     </div>
+    
   );
 }
