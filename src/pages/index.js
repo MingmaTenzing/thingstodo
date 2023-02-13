@@ -139,7 +139,7 @@ export default function Home() {
 
         
         {/* CLIENT REVIEWS */}
-        <div className="w-full p-10 mt-20  ">
+        <div className="w-full md:p-10 mt-20  ">
 
         <div className="md:space-x-5 md:w-[700px] lg:w-[800px] md:m-auto md:flex md:justify-center md:items-center border rounded-lg md:rounded-3xl sm:rounded-3xl mt-20  bg-thingstodo text-white">
 
