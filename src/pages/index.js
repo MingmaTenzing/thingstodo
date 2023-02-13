@@ -69,8 +69,9 @@ export default function Home() {
         </div>
 
         {/* TIME MANAGEMENT SECTION */}
+        <div className="p-5">
 
-        <div className="border lg:w-[1000px] m-auto p-8 sm:p-4 rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
+        <div className="border lg:w-[1000px] m-auto p-10 sm:p-4 rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
         <div className="mt-10">
             <Image src={tasks} width={100} height={100} className="w-[250px]  md:w-[350px]" />
           </div>
@@ -84,6 +85,7 @@ export default function Home() {
           </div>
 
           
+        </div>
         </div>
 
 
