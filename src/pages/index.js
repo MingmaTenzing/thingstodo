@@ -142,7 +142,7 @@ export default function Home() {
         </div>
           </div>
 
-          <div className="md:mt-10 md:w-[300px] lg:w-[300px]   ">
+          <div className=" hidden md:mt-10 md:w-[300px] lg:w-[300px]   ">
 
           <Carousel className="p-4 md:p-0 md:mr-10 " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
