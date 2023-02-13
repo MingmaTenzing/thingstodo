@@ -70,7 +70,7 @@ export default function Home() {
 
         {/* TIME MANAGEMENT SECTION */}
 
-        <div className="border lg:w-[1000px] m-auto sha  p-8 sm:p-4 rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
+        <div className="border lg:w-[1000px] m-auto p-8 sm:p-4 rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
         <div className="mt-10">
             <Image src={tasks} width={100} height={100} className="w-[250px]  md:w-[350px]" />
           </div>
@@ -108,7 +108,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center sm:flex-row-reverse  space-y-8 mt-20 ">
      
 
-          <div className="space-y-3 w-[400px] ">
+          <div className="space-y-3 w-[400px] p-4">
             <h1 className="font-[900] text-[30px] sm:text-[38px]  text-center sm:text-start">Share your <span className=" text-thingstodo">  achievements</span> </h1>
             <h1 className="text-sm opacity-60 text-center sm:text-start max-w-[300px] m-auto sm:m-0"> Share you achievements and motivate others to get organized as well.</h1>
 
@@ -125,7 +125,7 @@ export default function Home() {
 
         
         {/* CLIENT REVIEWS */}
-        <div className="w-full p-5 mt-20">
+        <div className="w-full p-5 mt-20 border ">
 
         <div className="md:w-[700px] lg:w-[800px] md:m-auto md:flex md:justify-center md:items-center border rounded-lg md:rounded-3xl sm:rounded-3xl mt-20  bg-thingstodo text-white">
 
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
           </div>
 
-          <div className="md:mt-10 md:w-[300px] lg:w-[300px]">
+          <div className="md:mt-10 md:w-[300px] lg:w-[300px]   ">
 
           <Carousel className="p-4 md:p-0 md:mr-10 " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
