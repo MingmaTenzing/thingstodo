@@ -41,7 +41,7 @@ export default function Home() {
             </p>
             <p className=" text-center opacity-60 text-sm md:text-base md:max-w-[350px] sm:text-start  ">
               {" "}
-              Whether you're a student, professional, or someone looking to
+              Whether you&apos;re a student, professional, or someone looking to
               improve their productivity, this todo app is the perfect tool to
               help you achieve your goals and stay organized.
             </p>
@@ -131,7 +131,7 @@ export default function Home() {
 
           <div className="p-10 flex flex-col items-center">
             <div className="flex justify-between items-center">
-            <h1 className="font-semibold md:text-2xl "> Let's see what our clients say about us </h1>
+            <h1 className="font-semibold md:text-2xl "> Let&apos;s see what our clients say about us </h1>
            
          </div>
          <div className="hidden md:flex pt-10">
