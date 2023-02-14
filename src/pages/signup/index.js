@@ -4,7 +4,7 @@ import logo from "../../assests/logoxl.png";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/init";
 import { Router, useRouter } from "next/router";
-function signup() {
+function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setconfirmPassword] = useState("");
@@ -120,4 +120,4 @@ function signup() {
     </div>
   );
 }
-export default signup;
+export default Signup;
