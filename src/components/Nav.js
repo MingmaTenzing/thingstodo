@@ -16,7 +16,7 @@ function Nav() {
            </div>
            </div>
            <div className='flex space-x-2'>
-           <button className='border py-1 px-2 md:py-2 md:px-3 rounded-lg text-sm'>Log in</button>
+           <button className='border py-1 px-2 md:py-2 md:px-3 rounded-lg text-sm' onClick={() => router.push("/signin")}>Log in</button>
            <button className='border py-1 px-2  md:py-2 md:px-3 rounded-lg text-sm bg-thingstodo text-white' onClick={() => router.push('/signup') } >Sign up</button>
       </div>
       </div>

@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/init";
 import { Router, useRouter } from "next/router";
 import { blueGrey } from "@mui/material/colors";
+import Link from "next/link";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +52,7 @@ function Signup() {
           </h1>
         </div>
         <form
-          className=" border py-[70px] px-10 rounded-lg space-y-6 "
+          className=" border py-[40px] px-10 rounded-lg space-y-6 "
           onSubmit={registerUser}
         >
           <div>
@@ -72,7 +73,7 @@ function Signup() {
                 <h1 className="text-sm"> Enter your password </h1>
                 <input
                   required
-                  type="text"
+                  type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="border border-red-600 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>
@@ -81,7 +82,7 @@ function Signup() {
                 <h1 className="text-sm"> Confirm your password </h1>
                 <input
                   required
-                  type="text"
+                  type="password"
                   onChange={(e) => setconfirmPassword(e.target.value)}
                   className=" border border-red-600 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>
@@ -119,6 +120,12 @@ function Signup() {
            {loading? <> <ScaleLoader color="#5271ff" height={30} /></> : null} 
           </div>
         </form>
+        <div className=" text-sm text-gray-600">
+            Already have an account?
+            <Link href="/signin">
+              <span className="text-thingstodo">Sign In</span>
+            </Link>
+          </div>
       </div>
     </div>
   );
