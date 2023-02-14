@@ -1,5 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
+import { auth } from "@/firebase/init";
+import { onAuthStateChanged } from "firebase/auth";
 
 import Nav from "@/components/Nav";
 import todo from "../assests/todocolor.svg";
@@ -17,10 +19,20 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { ChatBubbleLeftEllipsisIcon } from '@heroicons/react/24/outline'
 import Footer from "@/components/Footer";
-
+import { useState } from "react";
 
 
 export default function Home() {
+  const [user, setUser] = useState();
+
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    setUser(user);
+    console.log(user.uid)
+  }
+})
+
   return (
     <div className="">
       <Head>
@@ -31,7 +43,7 @@ export default function Home() {
       </Head>
 
       
-     <Nav />
+     <Nav user={user}/>
         {/* TIME MANAGEMENT SECTION */}
 
        <main className="p-4 ">

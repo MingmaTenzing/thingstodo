@@ -5,6 +5,7 @@ import { auth } from "@/firebase/init";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { ScaleLoader } from "react-spinners";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function SignIn() {
   const [loading, setLoading] = useState(false);
@@ -14,6 +15,8 @@ function SignIn() {
 
   const [error, setError] = useState();
 
+  const router = useRouter();
+
   function signInUser(event) {
     event.preventDefault();
     setLoading(true);
@@ -22,6 +25,8 @@ function SignIn() {
         const user = userCredential.user;
         setLoading(false);
         setUser(user);
+        router.push("/");
+        
         
       })
       .catch((error) => {
@@ -34,7 +39,7 @@ function SignIn() {
     <div>
       <div className="flex flex-col items-center pt-[100px]">
         <div className="flex flex-col items-center space-y-5 mb-5 ">
-          <Image src={logo} alt="thingstodo logo" width={200} height={200} />
+          <Image src={logo} alt="thingstodo logo" width={200} height={200}  onClick={()=> router.push('/')} className=' cursor-pointer'/>
           <h1 className="font-bold text-lg ">
             {" "}
             SignIn to your <span className="text-thingstodo">

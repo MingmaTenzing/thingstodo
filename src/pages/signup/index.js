@@ -44,7 +44,7 @@ function Signup() {
     <div>
       <div className="flex flex-col items-center pt-[100px]">
         <div className="flex flex-col items-center space-y-5 mb-5 ">
-          <Image src={logo} alt="thingstodo logo" width={200} height={200} />
+          <Image src={logo} alt="thingstodo logo" width={200} height={200} onClick={() => router.push('/')} className='cursor-pointer'/>
           <h1 className="font-bold text-lg ">
             {" "}
             Create your <span className="text-thingstodo">Thingstodo</span>{" "}
