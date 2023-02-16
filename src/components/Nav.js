@@ -1,4 +1,5 @@
 import { auth } from "@/firebase/init";
+import { height } from "@mui/system";
 import { signOut } from "firebase/auth";
 auth
 import Image from "next/image";
@@ -33,8 +34,9 @@ function Nav({ user }) {
         </div>
       </div>
       <div className="flex space-x-2">
-        {user ? (
-          <div className="bg-thingstodo px-3 text-white py-2 border rounded-full cursor-pointer" onClick={logout}>{((user.email[0]).toUpperCase())}</div>
+        {user ? ( 
+        
+          <div className=" px-3 text-white py-2  rounded-full cursor-pointer" onClick={logout}>{ <img src={user.photoURL} className='w-10' /> || <p className="bg-thingstodo py-1.5 px-3  rounded-full ">{(user.displayName[0]).toUpperCase()}</p> }</div>
         ) : (
           <>
             <button

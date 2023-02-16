@@ -28,9 +28,10 @@ function Signup() {
       createUserWithEmailAndPassword(auth, email, confirmpassword)
         .then((userCredential) => {
           setUser(userCredential.user);
+          console.log(user)
           setLoading(false);
 
-          router.push("/");
+          router.push("/username");
         })
         .catch((error) => {
           const erroCode = error.code;

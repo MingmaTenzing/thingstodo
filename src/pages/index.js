@@ -19,7 +19,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { ChatBubbleLeftEllipsisIcon } from '@heroicons/react/24/outline'
 import Footer from "@/components/Footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     setUser(user);
-    console.log(user.uid)
+    console.log(user)
   }
 })
 
