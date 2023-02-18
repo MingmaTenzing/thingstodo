@@ -9,7 +9,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
 
 function dashBoard() {
-  const [user, setUser] = useState();
+  const [user   , setUser] = useState({});
   const [tasktitle, settasktitle] = useState("");
 const [taskDescription, setTaskDescription] = useState("");
 
@@ -18,10 +18,14 @@ const [taskDescription, setTaskDescription] = useState("");
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user);
+        
       }
     });
-  }, [user]);
+  }, []);
+
+  
+
+
 
 
   async function addTask(event) {
@@ -32,7 +36,7 @@ const [taskDescription, setTaskDescription] = useState("");
     const task = {
         title: tasktitle, 
         description: taskDescription,
-        user: user.uid,
+        uid: user.uid,
         status: 'pending'
 
     };
@@ -53,7 +57,7 @@ const [taskDescription, setTaskDescription] = useState("");
   return (
     <div className="">
         <Toaster />
-      <Nav user={user} />
+      <Nav  user={user}/>
 
       <main className=" space-y-8 mt-10 p-4 py-3 mx-4   shadow-lg border md:m-auto rounded-3xl bg-slate-100 md:w-[900px] md:flex md:mt-20" >
 

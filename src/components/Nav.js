@@ -12,6 +12,9 @@ function Nav({ user }) {
 
   const router = useRouter();
 
+  console.log(user)
+
+
 
 
   function logout() {
@@ -25,6 +28,7 @@ function Nav({ user }) {
       .catch((error) => {
         console.log(error);
       });
+
   }
   return (
     <div className=" p-4 flex items-center justify-between border-b  ">
@@ -48,7 +52,7 @@ function Nav({ user }) {
           >
             {
               <p className="bg-thingstodo py-1.5 px-3  rounded-full ">
-                {user.displayName[0].toUpperCase()}
+                {user.displayName}
               </p>
             }
           </div>

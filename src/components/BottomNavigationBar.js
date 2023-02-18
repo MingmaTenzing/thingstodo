@@ -10,7 +10,7 @@ function BottomNavigationBar() {
     <div className="fixed bottom-0 w-full p-2 bg-footer text-white ">
         <div className=" flex justify-around items-center">
         <Link href={'/dashboard/pendingtasks'}   >  <ClockIcon className="w-8 sm:w-10 text-orange-400 " /></Link>
-            <PlusIcon  className="w-8 sm:w-10  text-thingstodo" />
+          <Link href={"/dashboard/addtasks"} > <PlusIcon  className="w-8 sm:w-10  text-thingstodo" /> </Link>
             <CheckCircleIcon className="w-8 sm:w-10  text-green-400" />
              
         </div>
