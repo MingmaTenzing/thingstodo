@@ -12,7 +12,6 @@ function Nav({ user }) {
 
   const router = useRouter();
 
-  console.log(user)
 
 
 

@@ -4,10 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { ScaleLoader } from "react-spinners";
 import logo from '../../assests/logoxl.png'
 
 
-function createProfile() {
+function CreateProfile() {
    
 
     
@@ -82,7 +83,7 @@ function addnameandImage(event) {
             type="submit"
             className="border py-2 px-4 bg-thingstodo text-white rounded-lg"
           >
-            Let's Go!
+            Let&apos;s Go!
           </button>
          {loading? <> <ScaleLoader color="#5271ff" height={30} /></> : null} 
         </div>
@@ -98,4 +99,4 @@ function addnameandImage(event) {
 );
   
 }
-export default createProfile
+export default CreateProfile

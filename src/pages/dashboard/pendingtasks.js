@@ -6,7 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
-function pendingtasks() {
+function Pendingtasks() {
 
     const [user, setUser] = useState({});
     const [userID, setUserID] = useState('')
@@ -43,7 +43,6 @@ function pendingtasks() {
   }
   getPostByUid();
 
-  console.log(data)
 
 
 
@@ -55,9 +54,15 @@ function pendingtasks() {
         <Nav  user={user}/>
 
         <main>
-            <h1> Tasks Todo </h1>
+            <h1>Your Tasks</h1>
 
-            { data.map((task) => <TaskTemplate key={task.id} task={task} />)}
+            <div className="space-y-3 ">
+
+            {
+             data.map((task) => <TaskTemplate key={task.id} task={task} />)
+             
+             }
+             </div>
 
 
             
@@ -68,9 +73,9 @@ function pendingtasks() {
 
 
 
-        <BottomNavigationBar />
+        <BottomNavigationBar data={data} />
 
     </div>
   )
 }
-export default pendingtasks
+export default Pendingtasks
