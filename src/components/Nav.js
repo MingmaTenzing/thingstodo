@@ -13,9 +13,6 @@ function Nav({ user }) {
   const router = useRouter();
 
 
-
-
-
   function logout() {
     signOut(auth)
       .then(() => {
@@ -55,7 +52,7 @@ function Nav({ user }) {
               </p>
             }
           </div>
-          {accountClick && ( <div onClick={logout} className=" cursor-pointer absolute top-[70px] border right-6 flex items-center p-2 rounded-lg space-x-2">
+          {accountClick && ( <div onClick={logout} className=" bg-white cursor-pointer absolute top-[70px] border right-6 flex items-center p-2 rounded-lg space-x-2">
          <ArrowLeftOnRectangleIcon className="w-5 text-red-500 " />
             <h1 className="text-sm"> Logout</h1>
             </div>)}

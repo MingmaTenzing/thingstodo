@@ -32,6 +32,7 @@ function Addtasks() {
       description: taskDescription,
       uid: user.uid,
       status: "pending",
+      time: new Date() 
     };
     await addDoc(collection(db, "tasks"), task);
     toast.success("Task Added Successfully");
