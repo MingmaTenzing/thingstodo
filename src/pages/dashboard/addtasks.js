@@ -13,6 +13,10 @@ function Addtasks() {
   const [data, setData] = useState([]);
   const [userID, setUserID] = useState("");
 
+ 
+  
+  
+
   const [tasktitle, settasktitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
@@ -32,7 +36,7 @@ function Addtasks() {
       description: taskDescription,
       uid: user.uid,
       status: "pending",
-      time: new Date() 
+      time: (new Date().toString()),
     };
     await addDoc(collection(db, "tasks"), task);
     toast.success("Task Added Successfully");
@@ -74,6 +78,7 @@ function Addtasks() {
               <input
                 type="text"
                 value={tasktitle}
+             
                 className="border  outline-none w-[300px] p-2 h-10 rounded-lg"
                 onChange={(e) => settasktitle(e.target.value)}
               ></input>

@@ -172,7 +172,7 @@ onAuthStateChanged(auth, (user) => {
 
           <div className="  md:mt-10 md:w-[300px] lg:w-[300px]   ">
 
-          <Carousel showStatus={false} autoPlay={true} interval={4000} className="p-4 md:p-0  " >
+          <Carousel showThumbs={false} showStatus={false} autoPlay={true} interval={4000} className="p-4 md:p-0  " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
               <Image src={review} width={400} height={400}  alt='' className='w-10' />
             </div>
