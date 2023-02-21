@@ -121,7 +121,7 @@ function Signup() {
            {loading? <> <ScaleLoader color="#5271ff" height={30} /></> : null} 
           </div>
         </form>
-        <div className=" text-sm text-gray-600">
+        <div className="mt-4 text-sm text-gray-600">
             Already have an account?
             <Link href="/signin">
               <span className="text-thingstodo">Sign In</span>

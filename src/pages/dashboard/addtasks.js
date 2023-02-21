@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import addtaskimg from "../../assests/addtasks.svg";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
+import { Router, useRouter } from "next/router";
 
 function Addtasks() {
   const [user, setUser] = useState({});
@@ -20,10 +21,19 @@ function Addtasks() {
   const [tasktitle, settasktitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
+  const router = useRouter();
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+      }
+      else{
+        
+
+        router.push('/signin')
+      
+        
       }
     });
   }, []);

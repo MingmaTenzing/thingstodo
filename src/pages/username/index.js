@@ -31,7 +31,7 @@ function addnameandImage(event) {
     }).then (()=> {
         console.log("Profile Updated");
         console.log(auth.currentUser);
-        router.push("/")
+        router.push("/dashboard/addtasks")
         
     }).catch((error) => {
         console.log(error);

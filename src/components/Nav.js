@@ -7,7 +7,7 @@ import { useState } from "react";
 import biglogo from "../assests/logoxl.png";
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 
-function Nav({ user }) {
+function Nav( {user} ) {
   const [accountClick, setAccountClick] = useState(false);
 
   const router = useRouter();
@@ -18,7 +18,6 @@ function Nav({ user }) {
       .then(() => {
         router.push('/signin')
         console.log("logged out");
-        setCurrentUser();
         
       })
       .catch((error) => {

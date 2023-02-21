@@ -9,58 +9,18 @@ import { copydata } from "@/assests/copydata";
 
 
 function BottomNavigationBar() {
-  const [user, setUser] = useState({});
-  const [userID, setUserID] = useState('')
-  const [data, setData] = useState([]);
-  const [taskCounter, setTaskCounter] = useState('');
-  
 
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        setUserID(user.uid)
-      }
-    })
-    async function getPostByUid() {
-    
-      const postCollectionRef = await query(collection(db, "tasks"),where("uid", '==', userID));
-    
-      const { docs } = await getDocs(postCollectionRef);
-  
-      setData(docs.map((doc) => ({...doc.data(), id:doc.id})));
-      
-  
-  
-      
-    
-    }
-    getPostByUid()
-    
-
-
-
-  },[])
-
-
-
-
-
-
-
-  
+   
   
 
   return (
     <div className="fixed bottom-0 w-full p-2 bg-footer text-white ">
         <div className=" flex justify-around items-center">
         <div className=" relative"> <Link href={'/dashboard/pendingtasks'}   > <ClockIcon className="w-8 sm:w-10 text-orange-400 " /> </Link>
-        <span className="absolute top-0 left-9 text-sm bg-thingstodo px-1 rounded-full">{copydata.length}</span>
         </div>
         
           <Link href={"/dashboard/addtasks"} > <PlusIcon  className="w-8 sm:w-10  text-thingstodo" /> </Link>
-            <CheckCircleIcon className="w-8 sm:w-10  text-green-400" />
+           <Link href={"/dashboard/completedtasks"} > <CheckCircleIcon className="w-8 sm:w-10  text-green-400" /> </Link>
              
         </div>
     </div>

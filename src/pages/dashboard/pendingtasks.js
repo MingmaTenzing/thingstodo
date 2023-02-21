@@ -9,11 +9,13 @@ import { useEffect, useState } from "react";
 import TimeAgo from "react-timeago";
 
 import { copydata } from "@/assests/copydata";
+import { useRouter } from "next/router";
 
 function Pendingtasks() {
   const [user, setUser] = useState({});
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
+  const router = useRouter();
 
 
   useEffect(() => {
@@ -22,10 +24,14 @@ function Pendingtasks() {
         setUser(user);
         setUserID(user.uid);
       }
+      else{
+        router.push('/signin')
+
+      }
     });
   }, []);
 
- useEffect (() => {
+
     async function getPostByUid() {
       const postCollectionRef = await query(
         collection(db, "tasks"),
@@ -35,11 +41,16 @@ function Pendingtasks() {
       const { docs } = await getDocs(postCollectionRef);
   
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-
+      
     }
   getPostByUid()
 
-  }) 
+ 
+   
+
+   
+
+  
 
   
 

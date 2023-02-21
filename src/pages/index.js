@@ -23,10 +23,12 @@ import { ChatBubbleLeftEllipsisIcon } from '@heroicons/react/24/outline'
 import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 
 export default function Home() {
   const [user, setUser] = useState();
+  const router = useRouter();
 
 
 onAuthStateChanged(auth, (user) => {
@@ -66,7 +68,7 @@ onAuthStateChanged(auth, (user) => {
               help you achieve your goals and stay organized.
             </p>
             <div className="flex justify-center sm:justify-start pt-3">
-              <button className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
+              <button onClick={() => router.push("/signin")}  className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
                 Get Started
               </button>
             </div>
@@ -95,11 +97,11 @@ onAuthStateChanged(auth, (user) => {
         <div className="p-5">
 
         <div className="border lg:w-[1000px] m-auto p-10 sm:p-4 rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
-        <div className="mt-10">
+        <div className="mt-10 p-4">
             <Image src={tasks} width={100} height={100} alt='' className="w-[250px]  md:w-[350px]" />
           </div>
           <div className="space-y-3 ">
-            <p className="font-[900] text-[30px] sm:text-[38px]  text-center sm:text-start ">Stay focus on your <span className=" text-thingstodo">tasks.</span></p>
+            <p className=" font-[900] text-[30px] sm:text-[38px]  text-center sm:text-start ">Stay focus on your <span className=" text-thingstodo">tasks.</span></p>
             <p className="text-sm opacity-60 text-center sm:text-start">
               {" "}
               Schedule your tasks effortlessly and focus on the things you want
@@ -170,7 +172,7 @@ onAuthStateChanged(auth, (user) => {
         </div>
           </div>
 
-          <div className="  md:mt-10 md:w-[300px] lg:w-[300px]   ">
+          <div className="   md:mt-10 md:mb-10 md:w-[300px] lg:w-[300px]   ">
 
           <Carousel showThumbs={false} showStatus={false} autoPlay={true} interval={4000} className="p-4 md:p-0  " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">

@@ -25,7 +25,7 @@ function SignIn() {
         const user = userCredential.user;
         setLoading(false);
         setUser(user);
-        router.push("/");
+        router.push("/dashboard/addtasks");
         
         
       })
@@ -102,7 +102,7 @@ function SignIn() {
           </div>
          
         </form>
-        <div className=" text-sm text-gray-600">
+        <div className=" mt-4 text-sm text-gray-600">
             Don&apos;t have an account?{" "}
             <Link href="/signup">
               <span className="text-thingstodo">Sign Up</span>
