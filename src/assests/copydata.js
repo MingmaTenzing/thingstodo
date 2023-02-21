@@ -53,7 +53,7 @@ export let copydata =
             "time": "Mon Feb 20 2023 18:37:21 GMT+0800 (Australian Western Standard Time)",
             "description": "Run for your life. ",
             "title": "Running at 7PM",
-            "status": "pending",
+            "status": "completed",
             "id": "k13eAHC8QzUmj84AjlIw"
         }
     ]

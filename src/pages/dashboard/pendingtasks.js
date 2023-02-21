@@ -25,7 +25,7 @@ function Pendingtasks() {
     });
   }, []);
 
-  {/* useEffect (() => {
+ useEffect (() => {
     async function getPostByUid() {
       const postCollectionRef = await query(
         collection(db, "tasks"),
@@ -35,12 +35,11 @@ function Pendingtasks() {
       const { docs } = await getDocs(postCollectionRef);
   
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(data)
 
     }
   getPostByUid()
 
-  }) */}  
+  }) 
 
   
 
@@ -55,8 +54,8 @@ function Pendingtasks() {
 
         <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
           { 
-             copydata.map((task ) => <TaskTemplate key={task.id} task={task} />)
-             
+          
+          data.filter((task) => task.status === 'pending').map((task) => <TaskTemplate key={task.id} task={task} />)
              
              } 
 
