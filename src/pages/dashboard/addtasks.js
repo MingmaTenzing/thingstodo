@@ -8,32 +8,35 @@ import addtaskimg from "../../assests/addtasks.svg";
 import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
 import { Router, useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { login, selectUser } from "slices/userSlice";
 
 function Addtasks() {
-  const [user, setUser] = useState({});
+const user =  useSelector(selectUser);
+
   const [data, setData] = useState([]);
   const [userID, setUserID] = useState("");
-
- 
-  
-  
 
   const [tasktitle, settasktitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
   const router = useRouter();
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user);
-      }
-      else{
-        
+        dispatch(login({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
 
-        router.push('/signin')
-      
+        }))
         
+      } else {
+        dispatch(logout);
+        router.push("/signin");
       }
     });
   }, []);
@@ -46,7 +49,7 @@ function Addtasks() {
       description: taskDescription,
       uid: user.uid,
       status: "pending",
-      time: (new Date().toString()),
+      time: new Date().toString(),
     };
     await addDoc(collection(db, "tasks"), task);
     toast.success("Task Added Successfully");
@@ -79,16 +82,17 @@ function Addtasks() {
           </h1>
 
           <form
-            id="form"
             onSubmit={addTask}
+            value={tasktitle}
+
             className=" mt-10 p-5  space-y-5 flex flex-col items-center"
           >
             <div>
               <h1 className="text-sm">Task Title</h1>
               <input
                 type="text"
+                required
                 value={tasktitle}
-             
                 className="border  outline-none w-[300px] p-2 h-10 rounded-lg"
                 onChange={(e) => settasktitle(e.target.value)}
               ></input>
@@ -98,22 +102,25 @@ function Addtasks() {
               <h1 className="text-sm">Description</h1>
               <input
                 type="text"
+                required
                 value={taskDescription}
                 className="border  outline-none p-2 w-[300px] h-[100px] rounded-lg"
                 onChange={(e) => setTaskDescription(e.target.value)}
               ></input>
             </div>
+            <div>
             <button
-              onClick={addTask}
+              type="submit"
               className="p-3 bg-thingstodo rounded-lg text-white"
             >
               {" "}
               Add Task{" "}
             </button>
+            </div>
           </form>
         </div>
       </main>
-      <BottomNavigationBar  />
+      <BottomNavigationBar />
     </div>
   );
 }

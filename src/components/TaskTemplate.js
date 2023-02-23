@@ -2,7 +2,7 @@
 import TimeAgo from "react-timeago";
 import { auth,db  } from "@/firebase/init";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
 
 
@@ -26,6 +26,12 @@ function tasktemplate({ task }) {
 
 
   }
+
+  async function deleteTask () {
+    await deleteDoc(doc(db, 'tasks', task.id));
+  }
+
+  
 
  
 
@@ -53,13 +59,11 @@ function tasktemplate({ task }) {
       </div>
 
       <span className="hidden  sm:flex absolute top-0 right-0 p-2 space-x-2">
-        <PencilSquareIcon className="w-5" />{" "}
-        <TrashIcon className="w-5 text-red-500" />
+        <TrashIcon onClick={deleteTask} className="w-5 text-red-500" />
       </span>
     </div>
     <div className="flex ml-5 sm:hidden space-x-3">
-      <PencilSquareIcon className="w-6" />
-      <TrashIcon className="w-5 text-red-500" />
+      <TrashIcon onClick={deleteTask} className="w-5 text-red-500" />
     </div>
   </div>
   </>

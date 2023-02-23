@@ -34,7 +34,7 @@ function CompletedTasks() {
   }, []);
 
 
-   {/* } async function getPostByUid() {
+   async function getPostByUid() {
       const postCollectionRef = await query(
         collection(db, "tasks"),
         where("uid", "==", userID)
@@ -44,10 +44,9 @@ function CompletedTasks() {
 
   
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      console.log(data);
       
     }
-  getPostByUid()  */}
+  getPostByUid()
 
    
   return (
@@ -64,7 +63,7 @@ function CompletedTasks() {
         <div className=" mt-5 p-4 mb-20 flex flex-col items-center  sm:flex sm:flex-row sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
           { 
           
-          copydata.filter((task) => task.status === 'completed').map((task) => <CompleteTemplate key={task.id} task={task} />)
+          data.filter((task) => task.status === 'completed').map((task) => <CompleteTemplate key={task.id} task={task} />)
              
              } 
 

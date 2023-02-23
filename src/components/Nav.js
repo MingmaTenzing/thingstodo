@@ -17,11 +17,9 @@ function Nav( {user} ) {
     signOut(auth)
       .then(() => {
         router.push('/signin')
-        console.log("logged out");
         
       })
       .catch((error) => {
-        console.log(error);
       });
 
   }

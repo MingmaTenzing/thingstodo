@@ -24,17 +24,27 @@ import Footer from "@/components/Footer";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "slices/userSlice";
 
 
 export default function Home() {
-  const [user, setUser] = useState();
+const user = useSelector(selectUser)
   const router = useRouter();
+  const dispatch = useDispatch();
 
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    setUser(user);
-    console.log(user)
+    dispatch(login({
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+
+    }))
+  }
+  else {
+    dispatch(logout);
   }
 })
 

@@ -1,8 +1,15 @@
+import { db } from "@/firebase/init";
 import { CheckBadgeIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline"
+import { deleteDoc, doc } from "firebase/firestore";
 import { Toaster } from "react-hot-toast"
 import TimeAgo from "react-time-ago"
+import ReactTimeago from "react-timeago";
 
 function CompleteTemplate({ task }) {
+
+  async function concludeTask () {
+    await deleteDoc(doc(db, 'tasks', task.id));
+  }
   return (
     <>
     <Toaster />
@@ -15,12 +22,12 @@ function CompleteTemplate({ task }) {
         <p className=" font-light text-sm">
           {task.description}
         </p>
-        <div className="flex justify-end items-center ">
+        <div className="flex justify-between items-center ">
          
-      {/*  <TimeAgo date={task.time} className="text-sm opacity-40" /> */} 
+       <ReactTimeago date={task.time} className="text-sm opacity-40" /> 
 
         
-          <button className="border text-sm   px-3 py-2 bg-green-500 rounded-xl  text-white">
+          <button onClick={concludeTask} className="border text-sm   px-3 py-2 bg-green-500 rounded-xl  text-white">
             Conclude
           </button>
         </div>
