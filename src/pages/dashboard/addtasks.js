@@ -9,7 +9,7 @@ import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
 import { Router, useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { login, selectUser } from "slices/userSlice";
+import { login, logout, selectUser } from "slices/userSlice";
 
 function Addtasks() {
 const user =  useSelector(selectUser);
@@ -35,7 +35,7 @@ const user =  useSelector(selectUser);
         }))
         
       } else {
-        dispatch(logout);
+        dispatch(logout());
         router.push("/signin");
       }
     });

@@ -16,7 +16,7 @@ function CompleteTemplate({ task }) {
       
       <div className="flex items-center p-2">
       
-      <div className="relative border w-[270px] sm:w-[300px] p-5 space-y-3 rounded-xl bg-slate-50">
+      <div className="relative border w-[360px] sm:w-[300px] p-5 space-y-3 rounded-xl bg-slate-50">
         <h1 className="font-bold w-[200px] ">{task.title}</h1>
   
         <p className=" font-light text-sm">
@@ -32,7 +32,7 @@ function CompleteTemplate({ task }) {
           </button>
         </div>
   
-        <span className="  flex absolute top-0 right-0 p-2 space-x-2">
+        <span className="  flex absolute top-0 right-4 sm:right-0 p-2 space-x-2">
          <CheckBadgeIcon className="w-7 text-green-500 " />
         </span>
       </div>

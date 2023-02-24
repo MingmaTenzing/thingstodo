@@ -6,16 +6,21 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import biglogo from "../assests/logoxl.png";
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
+import { useDispatch } from "react-redux";
 
 function Nav( {user} ) {
+  
   const [accountClick, setAccountClick] = useState(false);
 
   const router = useRouter();
+  const dispatch = useDispatch();
+  
 
 
   function logout() {
     signOut(auth)
       .then(() => {
+        dispatch(logout)
         router.push('/signin')
         
       })

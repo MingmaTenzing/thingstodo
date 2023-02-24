@@ -31,22 +31,25 @@ import { login, logout, selectUser } from "slices/userSlice";
 export default function Home() {
 const user = useSelector(selectUser)
   const router = useRouter();
-  const dispatch = useDispatch();
+  const dispatch  = useDispatch()
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        
+        dispatch(login({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
 
+        }))
+        
+      } else {
+        dispatch(logout());
+        router.push("/signin");
+      }
+    });
+  }, []);
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    dispatch(login({
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-
-    }))
-  }
-  else {
-    dispatch(logout);
-  }
-})
 
   return (
     <div className="">

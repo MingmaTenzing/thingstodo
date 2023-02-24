@@ -7,14 +7,16 @@ import { auth } from "@/firebase/init";
 import { Router, useRouter } from "next/router";
 import { blueGrey } from "@mui/material/colors";
 import Link from "next/link";
+import { login } from "slices/userSlice";
+import { useDispatch } from "react-redux";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setconfirmPassword] = useState("");
   const [borderRed, setBorderRed] = useState(false);
-  const [user, setUser] = useState();
   const [loading, setLoading] = useState(false);
 
+const dispatch = useDispatch();
   const router = useRouter();
 
   function registerUser(event) {
@@ -27,8 +29,13 @@ function Signup() {
     } else {
       createUserWithEmailAndPassword(auth, email, confirmpassword)
         .then((userCredential) => {
-          setUser(userCredential.user);
-          console.log(user)
+          const user = userCredential.user;
+          dispatch(login({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+  
+          }))
           setLoading(false);
 
           router.push("/username");
@@ -36,7 +43,6 @@ function Signup() {
         .catch((error) => {
           const erroCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage);
         });
     }
   }

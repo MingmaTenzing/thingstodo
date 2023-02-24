@@ -6,14 +6,16 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { ScaleLoader } from "react-spinners";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { login } from "slices/userSlice";
+import { useDispatch } from "react-redux";
 
 function SignIn() {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [user, setUser] = useState();
 
   const [error, setError] = useState();
+  const dispatch = useDispatch();
 
   const router = useRouter();
 
@@ -24,7 +26,12 @@ function SignIn() {
       .then((userCredential) => {
         const user = userCredential.user;
         setLoading(false);
-        setUser(user);
+        dispatch(login({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+
+        }))
         router.push("/dashboard/addtasks");
         
         
@@ -39,7 +46,7 @@ function SignIn() {
     <div>
       <div className="flex flex-col items-center pt-[100px]">
         <div className="flex flex-col items-center space-y-5 mb-5 ">
-          <Image src={logo} alt="thingstodo logo" width={200} height={200}  onClick={()=> router.push('/')} className=' cursor-pointer'/>
+         <Link href={"/"}>  <Image src={logo} alt="thingstodo logo" width={200} height={200}  className=' cursor-pointer'/>  </Link>
           <h1 className="font-bold text-lg ">
             {" "}
             SignIn to your <span className="text-thingstodo">

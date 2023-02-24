@@ -11,24 +11,34 @@ import TimeAgo from "react-timeago";
 import { copydata } from "@/assests/copydata";
 import CompleteTemplate from "@/components/CompleteTemplate";
 import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "slices/userSlice";
 
 function CompletedTasks() {
-  const [user, setUser] = useState({});
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
   const router = useRouter();
+  const user =  useSelector(selectUser);
 
 
+
+  const dispatch  = useDispatch();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user);
         setUserID(user.uid);
-      }
-      else{
-        router.push('/signin')
+        
+        dispatch(login({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
 
+        }))
+        
+      } else {
+        dispatch(logout());
+        router.push("/signin");
       }
     });
   }, []);

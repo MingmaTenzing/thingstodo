@@ -10,40 +10,57 @@ import TimeAgo from "react-timeago";
 
 import { copydata } from "@/assests/copydata";
 import { useRouter } from "next/router";
+import { useSelect } from "@mui/base";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "slices/userSlice";
 
 function Pendingtasks() {
-  const [user, setUser] = useState({});
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
   const router = useRouter();
 
+  const user = useSelector(selectUser);
 
+  const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user);
-        setUserID(user.uid);
-      }
-      else{
-        router.push('/signin')
+        
+  setUserID(user.uid);
+        dispatch(login({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
 
+        }))
+        
+      } else {
+        dispatch(logout());
+        router.push("/signin");
       }
     });
   }, []);
 
 
-    async function getPostByUid() {
-      const postCollectionRef = await query(
-        collection(db, "tasks"),
-        where("uid", "==", userID)
-      );
-  
-      const { docs } = await getDocs(postCollectionRef);
-  
-      setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      
-    }
-  getPostByUid()
+
+  async function getPostByUid() {
+    const postCollectionRef = await query(
+      collection(db, "tasks"),
+      where("uid", "==", userID)
+    );
+
+    const { docs } = await getDocs(postCollectionRef);
+
+    setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    
+  }
+getPostByUid()
+
+
+
+
+
+   
 
  
    
