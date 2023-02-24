@@ -43,20 +43,24 @@ function CompletedTasks() {
     });
   }, []);
 
+useEffect(() => {
+  async function getPostByUid() {
+    const postCollectionRef = await query(
+      collection(db, "tasks"),
+      where("uid", "==", userID)
+    );
 
-   async function getPostByUid() {
-      const postCollectionRef = await query(
-        collection(db, "tasks"),
-        where("uid", "==", userID)
-      );
-  
-      const { docs } = await getDocs(postCollectionRef);
+    const { docs } = await getDocs(postCollectionRef);
 
-  
-      setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      
-    }
-  getPostByUid()
+
+    setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    
+  }
+getPostByUid()
+
+},[userID])
+
+   
 
    
   return (

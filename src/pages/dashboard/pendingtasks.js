@@ -13,27 +13,29 @@ import { useRouter } from "next/router";
 import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "slices/userSlice";
+import { useLocalStorage, useSessionStorage } from "usehooks-ts";
 
 function Pendingtasks() {
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
   const router = useRouter();
-
+ 
+  
+  
   const user = useSelector(selectUser);
 
   const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        
-  setUserID(user.uid);
-        dispatch(login({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-
-        }))
-        
+        setUserID(user.uid);
+        dispatch(
+          login({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+          })
+        );
       } else {
         dispatch(logout());
         router.push("/signin");
@@ -41,33 +43,29 @@ function Pendingtasks() {
     });
   }, []);
 
-
-
-  async function getPostByUid() {
-    const postCollectionRef = await query(
-      collection(db, "tasks"),
-      where("uid", "==", userID)
-    );
-
-    const { docs } = await getDocs(postCollectionRef);
-
-    setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  useEffect(()=> {
+    async function getPostByUid() {
+      const postCollectionRef = await query(
+        collection(db, "tasks"),
+        where("uid", "==", userID)
+      );
+  
+      const { docs } = await getDocs(postCollectionRef);
+  
+      setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     
-  }
-getPostByUid()
+      
+  
+      
+
+    }
+    getPostByUid();
+  },[userID])
 
 
-
-
-
-   
-
- 
-   
-
-   
 
   
+
 
   
 
@@ -81,23 +79,15 @@ getPostByUid()
         </h1>
 
         <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
-          { 
-          
-          data.filter((task) => task.status === 'pending').map((task) => <TaskTemplate key={task.id} task={task} />)
-             
-             } 
-
-        
-
-
-     
-
-
-
+          {data
+            .filter((task) => task.status === "pending")
+            .map((task) => (
+              <TaskTemplate key={task.id} task={task} />
+            ))}
         </div>
       </main>
 
-      <BottomNavigationBar data={data} />
+      <BottomNavigationBar />
     </div>
   );
 }

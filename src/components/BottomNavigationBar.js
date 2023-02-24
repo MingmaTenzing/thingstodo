@@ -6,10 +6,16 @@ import Link from "next/link";
 import { Router, useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { copydata } from "@/assests/copydata";
+import { useLocalStorage, useSessionStorage } from "usehooks-ts";
 
 
 function BottomNavigationBar() {
 const router = useRouter();
+const [pendingTasks, setpendingTasks] = useSessionStorage();
+const [test, setTest] =useSessionStorage()
+
+
+console.log(test)
    
   
 

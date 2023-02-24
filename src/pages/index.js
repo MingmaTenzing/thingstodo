@@ -81,9 +81,11 @@ const user = useSelector(selectUser)
               help you achieve your goals and stay organized.
             </p>
             <div className="flex justify-center sm:justify-start pt-3">
-              <button onClick={() => router.push("/signin")}  className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
+          {user? (<><button onClick={() => router.push("/dashboard/addtasks")}  className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
                 Get Started
-              </button>
+              </button></>):(<><button onClick={() => router.push("/signin")}  className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
+                Get Started
+              </button></>)}    
             </div>
           </div>
 
