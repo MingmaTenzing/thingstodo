@@ -13,7 +13,7 @@ import { onclick } from "slices/clickedSlice";
 
 
 
-function tasktemplate({ task }) {
+function Tasktemplate({ task }) {
 
   const dispatch = useDispatch()
 
@@ -78,4 +78,4 @@ function tasktemplate({ task }) {
   </>
   );
 }
-export default tasktemplate;
+export default Tasktemplate;
