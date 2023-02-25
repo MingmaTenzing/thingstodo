@@ -8,21 +8,30 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import TimeAgo from "react-timeago";
 
+import { useRef } from "react";
+import { useOnClickOutside } from 'usehooks-ts'
 import { copydata } from "@/assests/copydata";
 import { useRouter } from "next/router";
 import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "slices/userSlice";
+import { Clicked } from "slices/clickedSlice";
 import { useLocalStorage, useSessionStorage } from "usehooks-ts";
+import { count } from "slices/pendingTasksSlice";
 
 function Pendingtasks() {
+
+  const ref = useRef(null)
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
   const router = useRouter();
+
+  
  
   
   
   const user = useSelector(selectUser);
+  const clicked = useSelector(Clicked);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -53,14 +62,26 @@ function Pendingtasks() {
       const { docs } = await getDocs(postCollectionRef);
   
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    
-      
-  
-      
 
     }
     getPostByUid();
+  
   },[userID])
+ 
+  useEffect(() => {
+    dispatch(count({
+      tasks:data.filter((task) => task.status === "pending").length.toString()
+      
+     }))
+  },[data])
+
+
+  
+
+
+
+
+
 
 
 

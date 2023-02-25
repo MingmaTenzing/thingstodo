@@ -10,9 +10,10 @@ import { toast, Toaster } from "react-hot-toast";
 import { Router, useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "slices/userSlice";
+import { count } from "slices/pendingTasksSlice";
 
 function Addtasks() {
-const user =  useSelector(selectUser);
+  const user = useSelector(selectUser);
 
   const [data, setData] = useState([]);
   const [userID, setUserID] = useState("");
@@ -21,25 +22,26 @@ const user =  useSelector(selectUser);
   const [taskDescription, setTaskDescription] = useState("");
 
   const router = useRouter();
-
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(login({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-
-        }))
-        
+        setUserID(user.id);
+        dispatch(
+          login({
+            uid: user.uid,
+            email: user.email,
+            displayName: user.displayName,
+          })
+        );
       } else {
         dispatch(logout());
         router.push("/signin");
       }
     });
-  }, []);
+  }, []);  
 
   async function addTask(event) {
     event.preventDefault();
@@ -84,7 +86,6 @@ const user =  useSelector(selectUser);
           <form
             onSubmit={addTask}
             value={tasktitle}
-
             className=" mt-10 p-5  space-y-5 flex flex-col items-center"
           >
             <div>
@@ -109,13 +110,13 @@ const user =  useSelector(selectUser);
               ></input>
             </div>
             <div>
-            <button
-              type="submit"
-              className="p-3 bg-thingstodo rounded-lg text-white"
-            >
-              {" "}
-              Add Task{" "}
-            </button>
+              <button
+                type="submit"
+                className="p-3 bg-thingstodo rounded-lg text-white"
+              >
+                {" "}
+                Add Task{" "}
+              </button>
             </div>
           </form>
         </div>

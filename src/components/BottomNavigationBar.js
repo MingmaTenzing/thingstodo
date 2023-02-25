@@ -7,15 +7,17 @@ import { Router, useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { copydata } from "@/assests/copydata";
 import { useLocalStorage, useSessionStorage } from "usehooks-ts";
+import { useSelector } from "react-redux";
+import { pendingtasks } from "slices/pendingTasksSlice";
 
 
 function BottomNavigationBar() {
 const router = useRouter();
-const [pendingTasks, setpendingTasks] = useSessionStorage();
-const [test, setTest] =useSessionStorage()
+
+const numberofPendingTasks = useSelector(pendingtasks);
 
 
-console.log(test)
+
    
   
 
@@ -23,6 +25,7 @@ console.log(test)
     <div className="fixed bottom-0 w-full p-2 bg-footer text-white ">
         <div className=" flex justify-around items-center">
         <div className=" relative">  <ClockIcon onClick={() => router.push('/dashboard/pendingtasks')}  className="w-8 sm:w-10 text-orange-400 " /> 
+        <p>{numberofPendingTasks.tasks}</p>
         </div>
         
           <Link href={"/dashboard/addtasks"} > <PlusIcon  className="w-8 sm:w-10  text-thingstodo" /> </Link>

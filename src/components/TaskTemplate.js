@@ -4,15 +4,25 @@ import { auth,db  } from "@/firebase/init";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { doc, getDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
-
+import { useOnClickOutside } from "usehooks-ts";
+import { useRef } from "react";
+import { useLocalStorage } from 'usehooks-ts'
+import { useDispatch } from "react-redux";
+import { onclick } from "slices/clickedSlice";
 
 
 
 
 function tasktemplate({ task }) {
 
+  const dispatch = useDispatch()
+
+
 
   function taskCompleted() {
+    dispatch(onclick())
+ 
+    
     const postRef = doc(db, 'tasks', task.id); 
     const markasComplete = {
       description: task.description,
@@ -31,7 +41,6 @@ function tasktemplate({ task }) {
     await deleteDoc(doc(db, 'tasks', task.id));
   }
 
-  
 
  
 
@@ -53,7 +62,7 @@ function tasktemplate({ task }) {
        
       
       
-        <button onClick={taskCompleted} className="border text-sm   px-3 py-2 bg-thingstodo rounded-xl  text-white">
+        <button  onClick={taskCompleted} className="border text-sm   px-3 py-2 bg-thingstodo rounded-xl  text-white">
           Done
         </button>
       </div>
