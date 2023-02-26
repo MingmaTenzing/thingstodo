@@ -25,7 +25,7 @@ const numberofPendingTasks = useSelector(pendingtasks);
     <div className="fixed bottom-0 w-full p-2 bg-footer text-white ">
         <div className=" flex justify-around items-center">
         <div className=" relative">  <ClockIcon onClick={() => router.push('/dashboard/pendingtasks')}  className="w-8 sm:w-10 text-orange-400 " /> 
-        <p className="absolute top-0 bg-thingstodo rounded-full px-[6px] text-center text-sm left-7">{numberofPendingTasks.tasks}</p>
+        <p className="absolute top-0 bg-thingstodo rounded-full px-[6px] text-center text-sm left-7">{/*{numberofPendingTasks.tasks}*/}</p>
         </div>
         
           <Link href={"/dashboard/addtasks"} > <PlusIcon  className="w-8 sm:w-10  text-thingstodo" /> </Link>
