@@ -14,7 +14,7 @@ import { copydata } from "@/assests/copydata";
 import { useRouter } from "next/router";
 import { useSelect } from "@mui/base";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "slices/userSlice";
+import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 import { Clicked } from "slices/clickedSlice";
 import { useLocalStorage, useSessionStorage } from "usehooks-ts";
 import { count } from "slices/pendingTasksSlice";
@@ -24,6 +24,8 @@ function Pendingtasks() {
   const ref = useRef(null)
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
+  const [pendingtasks, setPendingTasks] = useState([]);
+  
   const router = useRouter();
 
   
@@ -46,7 +48,7 @@ function Pendingtasks() {
           })
         );
       } else {
-        dispatch(logout());
+        dispatch(signoutuser());
         router.push("/signin");
       }
     });
@@ -62,18 +64,20 @@ function Pendingtasks() {
       const { docs } = await getDocs(postCollectionRef);
   
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setPendingTasks(data.filter((task) => task.status === "pending"))
+
 
     }
     getPostByUid();
   
-  },[userID])
+  },[userID,pendingtasks])
  
   useEffect(() => {
     dispatch(count({
-      tasks:data.filter((task) => task.status === "pending").length.toString()
+      tasks:pendingtasks.length.toString()
       
      }))
-  },[data])
+  },[pendingtasks])
 
 
   

@@ -43,10 +43,7 @@ const user = useSelector(selectUser)
 
         }))
         
-      } else {
-        dispatch(logout());
-        router.push("/signin");
-      }
+      } 
     });
   }, []);
 

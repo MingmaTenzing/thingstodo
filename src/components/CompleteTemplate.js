@@ -1,14 +1,16 @@
 import { db } from "@/firebase/init";
 import { CheckBadgeIcon, PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline"
 import { deleteDoc, doc } from "firebase/firestore";
-import { Toaster } from "react-hot-toast"
+import { toast, Toaster } from "react-hot-toast"
 import TimeAgo from "react-time-ago"
 import ReactTimeago from "react-timeago";
 
 function CompleteTemplate({ task }) {
 
   async function concludeTask () {
+
     await deleteDoc(doc(db, 'tasks', task.id));
+    toast.success('Task Concluded 🥳')
   }
   return (
     <>

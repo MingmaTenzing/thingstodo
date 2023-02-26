@@ -7,10 +7,14 @@ import { useState } from "react";
 import biglogo from "../assests/logoxl.png";
 import { ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline'
 import { useDispatch } from "react-redux";
+import Link from "next/link";
+import { signoutuser } from "slices/userSlice";
 
 function Nav( {user} ) {
   
   const [accountClick, setAccountClick] = useState(false);
+  const [errormessage, seterrormessage] = useState();
+  
 
   const router = useRouter();
   const dispatch = useDispatch();
@@ -20,18 +24,21 @@ function Nav( {user} ) {
   function logout() {
     signOut(auth)
       .then(() => {
-        dispatch(logout)
-        router.push('/signin')
+       
+        dispatch(signoutuser())
+   
         
       })
       .catch((error) => {
+        seterrormessage(error.message);
+        
       });
 
   }
   return (
     <div className=" p-4 flex items-center justify-between border-b  ">
       <div className="flex items-center space-x-4 ">
-        <Image src={biglogo} alt="logo" className="w-[90px] md:w-[100px] " onClick={() => router.push('/')}/>
+      <Link href={"/"} >  <Image src={biglogo} alt="logo" className="w-[90px] md:w-[100px] " /> </Link>
         <div className="md:flex hidden space-x-3 text-sm">
           <p>Home</p>
           <p>Product</p>

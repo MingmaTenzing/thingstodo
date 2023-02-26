@@ -12,13 +12,15 @@ import { copydata } from "@/assests/copydata";
 import CompleteTemplate from "@/components/CompleteTemplate";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "slices/userSlice";
+import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 
 function CompletedTasks() {
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
   const router = useRouter();
   const user =  useSelector(selectUser);
+  const [completedTasks, setCompletedTasks] = useState([]);
+
 
 
 
@@ -37,7 +39,7 @@ function CompletedTasks() {
         }))
         
       } else {
-        dispatch(logout());
+        dispatch(signoutuser());
         router.push("/signin");
       }
     });
@@ -54,11 +56,12 @@ useEffect(() => {
 
 
     setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setCompletedTasks(data.filter((task) => task.status === 'completed'))
     
   }
 getPostByUid()
 
-},[userID])
+},[userID, completedTasks])
 
 
 
@@ -79,7 +82,7 @@ getPostByUid()
         <div className=" mt-5 p-4 mb-20 flex flex-col items-center  sm:flex sm:flex-row sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
           { 
           
-          data.filter((task) => task.status === 'completed').map((task) => <CompleteTemplate key={task.id} task={task} />)
+          completedTasks.map((task) => <CompleteTemplate key={task.id} task={task} />)
              
              } 
 

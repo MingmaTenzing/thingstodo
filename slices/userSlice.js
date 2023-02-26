@@ -13,7 +13,7 @@ export const userSlice = createSlice({
         
     },
 
-    logout: (state) => {
+    signoutuser: (state) => {
         state.user = null
     }
     
@@ -21,7 +21,7 @@ export const userSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { login, logout} = userSlice.actions
+export const { login, signoutuser} = userSlice.actions
 
 export const selectUser = (state) => state.user.user;
 

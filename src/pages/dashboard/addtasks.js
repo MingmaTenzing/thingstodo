@@ -9,7 +9,7 @@ import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
 import { toast, Toaster } from "react-hot-toast";
 import { Router, useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { login, logout, selectUser } from "slices/userSlice";
+import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 import { count } from "slices/pendingTasksSlice";
 
 function Addtasks() {
@@ -37,7 +37,7 @@ function Addtasks() {
           })
         );
       } else {
-        dispatch(logout());
+        dispatch(signoutuser());
         router.push("/signin");
       }
     });

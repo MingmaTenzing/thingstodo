@@ -33,6 +33,8 @@ function SignIn() {
 
         }))
         router.push("/dashboard/addtasks");
+
+      
         
         
       })
@@ -77,6 +79,7 @@ function SignIn() {
             <input
               required
               type="email"
+              autoComplete="on"
               placeholder="email@gmail.com"
               className="border px-5 py-2 text-sm outline-none rounded-lg"
               onChange={(e) => setEmail(e.target.value)}
@@ -87,6 +90,7 @@ function SignIn() {
             <h1 className="text-sm"> Enter your password </h1>
             <input
               required
+              autoComplete="on"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               className="border outline-none px-5 py-2 text-sm rounded-lg"
