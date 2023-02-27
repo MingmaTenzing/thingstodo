@@ -82,7 +82,7 @@ const user = useSelector(selectUser)
           {user? (<><button onClick={() => router.push("/dashboard/addtasks")}  className="border py-2 px-6 hover:scale-110 hover:bg-footer transform transition-all duration-100 ease-in bg-[#5271ff] text-white rounded-lg">
 
                 Get Started
-              </button></>):(<><button onClick={() => riner.push("/signin")}  className="border py-2 px-6 hover:scale-110 hover:bg-footer transform transition-all duration-100 ease-in bg-[#5271ff] text-white rounded-lg">
+              </button></>):(<><button onClick={() => router.push("/signin")}  className="border py-2 px-6 hover:scale-110 hover:bg-footer transform transition-all duration-100 ease-in bg-[#5271ff] text-white rounded-lg">
                 Get Started
               </button></>)}    
             </div>
