@@ -65,7 +65,7 @@ const user = useSelector(selectUser)
         {/* TIME MANAGEMENT SECTION */}
 
        <main className="p-4 ">
-        <div className=" md:space-x-2 lg:space-x-10 mt-20 md:mt-10 flex flex-col sm:flex-row sm:justify-center sm:space-x-6 items-center space-y-10">
+        <div className=" md:space-x-2 md:mb-20 lg:space-x-8 mt-20 md:mt-10 flex flex-col sm:flex-row sm:justify-center sm:space-x-6 items-center space-y-10">
           <div className=" max-w-[400px] md:max-w-[500px] space-y-2 md:space-y-3">
             <p className="   text-[30px] text-center font-[900] sm:text-[38px]  sm:text-start md:text-[38px]">
               {" "}
@@ -94,7 +94,7 @@ const user = useSelector(selectUser)
               alt=''
               width={1080}
               height={1080}
-              className="w-[250px] md:w-[600px] "
+              className="w-[350px] md:w-[600px] "
             />
             {/*<Image
               src={womencalender}
