@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
 import Nav from "@/components/Nav";
 import todo from "../assests/todocolor.svg";
+import thingstodo from "../assests/Thingstodo.png";
 import womencalender from "../assests/womencalender.svg";
 import tasks from "../assests/taskss.svg";
 import visualdata from "../assests/visualdata.svg";
@@ -78,9 +79,10 @@ const user = useSelector(selectUser)
               help you achieve your goals and stay organized.
             </p>
             <div className="flex justify-center sm:justify-start pt-3">
-          {user? (<><button onClick={() => router.push("/dashboard/addtasks")}  className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
+          {user? (<><button onClick={() => router.push("/dashboard/addtasks")}  className="border py-2 px-6 hover:scale-110 hover:bg-footer transform transition-all duration-100 ease-in bg-[#5271ff] text-white rounded-lg">
+
                 Get Started
-              </button></>):(<><button onClick={() => router.push("/signin")}  className="border py-2 px-6 bg-[#5271ff] text-white rounded-lg">
+              </button></>):(<><button onClick={() => riner.push("/signin")}  className="border py-2 px-6 hover:scale-110 hover:bg-footer transform transition-all duration-100 ease-in bg-[#5271ff] text-white rounded-lg">
                 Get Started
               </button></>)}    
             </div>
@@ -88,19 +90,19 @@ const user = useSelector(selectUser)
 
           <div className="flex flex-col ">
             <Image
-              src={todo}
+              src={thingstodo}
               alt=''
-              width={100}
-              height={100}
-              className="w-[250px] md:w-[350px] "
+              width={1080}
+              height={1080}
+              className="w-[250px] md:w-[600px] "
             />
-            <Image
+            {/*<Image
               src={womencalender}
               width={100}
               alt=''
               height={100}
               className=" hidden md:inline w-[250px]  md:w-[350px]"
-            />
+  /> */}
           </div>
   </div> 
 
