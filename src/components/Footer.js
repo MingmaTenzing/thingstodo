@@ -6,16 +6,17 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Instagram from "@mui/icons-material/Instagram";
+import Link from "next/link";
 function Footer() {
   return (
     <div className="bg-footer text-white flex flex-col items-center space-y-8 p-8 mt-10">
       <div className="flex items-center md:space-x-[200px] lg:space-x-[400px]">
         <div className=" flex  flex-col space-y-4 invert brightness-0 ">
-          <Image src={logo} alt="thingstodo logo" width={100} height={100}  className='w-[120px]  '/>
+       <Link href='/'>  <Image src={logo} alt="thingstodo logo" width={100} height={100}  className='w-[120px]  '/></Link> 
         <p className="text-sm opacity-60 hidden md:flex ">The best todo app in the world. </p>
         </div>
 
-        <div className="hidden md:flex space-x-10 md:pt-10 ">
+        <div className="hidden md:flex space-x-10 md:pt-10 cursor-pointer ">
 
           <div>
             <h1 className="font-bold"> Services</h1>
@@ -50,11 +51,11 @@ function Footer() {
       </div>
 
       <div className="flex text-white md:pt-10 ">
-        <div className="space-x-5">
-          <InstagramIcon style={{ fontSize: "25" }} />
-          <FacebookIcon style={{ fontSize: "25" }} />
-          <GitHubIcon style={{ fontSize: "25" }} />
-          <LinkedInIcon style={{ fontSize: "25" }} />
+        <div className="space-x-5 ">
+          <InstagramIcon style={{ fontSize: "25" }} className=" hover:scale-125  hover:transform hover:transition  hover:ease-in-out duration-100"/>
+          <FacebookIcon style={{ fontSize: "25" }} className=" hover:scale-125  hover:transform hover:transition  hover:ease-in-out duration-100"/>
+          <GitHubIcon style={{ fontSize: "25" }} className=" hover:scale-125  hover:transform hover:transition  hover:ease-in-out duration-100" />
+          <LinkedInIcon style={{ fontSize: "25" }} className=" hover:scale-125  hover:transform hover:transition  hover:ease-in-out duration-100" />
   
         </div>
         

@@ -39,7 +39,7 @@ function Nav( {user} ) {
     <div className=" p-4 flex items-center justify-between border-b  ">
       <div className="flex items-center space-x-4 ">
       <Link href={"/"} >  <Image src={biglogo} alt="logo" className="w-[90px] md:w-[100px] " /> </Link>
-        <div className="md:flex hidden space-x-3 text-sm">
+        <div className="md:flex hidden space-x-3 text-sm cursor-pointer">
           <p>Home</p>
           <p>Product</p>
           <p>Pricing</p>
@@ -61,7 +61,7 @@ function Nav( {user} ) {
               </p>
             }
           </div>
-          {accountClick && ( <div onClick={logout} className=" bg-white cursor-pointer absolute top-[70px] border right-6 flex items-center p-2 rounded-lg space-x-2">
+          {accountClick && ( <div onClick={logout} className=" bg-white  cursor-pointer absolute top-[70px] border right-6 flex items-center p-2 rounded-lg space-x-2">
          <ArrowLeftOnRectangleIcon className="w-5 text-red-500 " />
             <h1 className="text-sm"> Logout</h1>
             </div>)}
