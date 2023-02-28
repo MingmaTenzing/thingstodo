@@ -63,7 +63,7 @@ function CompletedTasks() {
     getPostByUid();
   }, [userID, completedTasks]);
 
-  const test = 0
+
 
   return (
     <div>
@@ -71,7 +71,7 @@ function CompletedTasks() {
 
       <main className="mt-5">
 
-        {test === 0 ? ( <div className="flex flex-col items-center space-y-8 mt-10 ">
+        {completedTasks.length === 0 ? ( <div className="flex flex-col items-center space-y-8 mt-10 ">
               <div className="space-y-3">
               <h1 className="text-center w-[340px] sm:w-[500px] text-[20px] font-[700] "> You haven't completed any tasks at the moment</h1>
               <h1 className="text-center w-[340px] sm:w-[500px]  text-sm font-light"> Add tasks to get started</h1>
