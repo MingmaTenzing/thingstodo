@@ -18,6 +18,7 @@ import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 import { Clicked } from "slices/clickedSlice";
 import { useLocalStorage, useSessionStorage } from "usehooks-ts";
 import { count } from "slices/pendingTasksSlice";
+import Loading from "@/components/Loading";
 
 function Pendingtasks() {
 
@@ -25,6 +26,7 @@ function Pendingtasks() {
   const [userID, setUserID] = useState("");
   const [data, setData] = useState([]);
   const [pendingtasks, setPendingTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
   
   const router = useRouter();
 
@@ -33,7 +35,6 @@ function Pendingtasks() {
   
   
   const user = useSelector(selectUser);
-  const clicked = useSelector(Clicked);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -64,7 +65,15 @@ function Pendingtasks() {
       const { docs } = await getDocs(postCollectionRef);
   
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+
+
+     
+      
       setPendingTasks(data.filter((task) => task.status === "pending"))
+      setLoading(false);
+      
+      
+      
 
 
     }
@@ -103,13 +112,16 @@ function Pendingtasks() {
           Your pending <span className="text-thingstodo"> tasks </span>{" "}
         </h1>
 
-        <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
+        {loading? (<>
+        <Loading /> </>) : (  <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
           {data
             .filter((task) => task.status === "pending")
             .map((task) => (
               <TaskTemplate key={task.id} task={task} />
             ))}
-        </div>
+        </div>)}
+
+      
       </main>
 
       <BottomNavigationBar />

@@ -110,11 +110,11 @@ const user = useSelector(selectUser)
        
         <div className="p-5">
 
-        <div className="border lg:w-[1000px] m-auto p-10 sm:p-4 rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
+        <div className="border lg:w-[1000px] m-auto p-10  rounded-lg sm:rounded-full  bg-slate-100 mt-20 flex flex-col-reverse sm:space-x-10 sm:flex-row sm:items-center sm:justify-center items-center ">
         <div className="mt-10 p-4">
             <Image src={tasks} width={100} height={100} alt='' className="w-[250px]  md:w-[350px]" />
           </div>
-          <div className="space-y-3 ">
+          <div className="space-y-3 sm:p-6">
             <p className=" font-[900] text-[30px] sm:text-[38px]  text-center sm:text-start ">Stay focus on your <span className=" text-thingstodo">tasks.</span></p>
             <p className="text-sm opacity-60 text-center sm:text-start">
               {" "}

@@ -18,6 +18,7 @@ function Addtasks() {
   const [data, setData] = useState([]);
   const [userID, setUserID] = useState("");
 
+
   const [tasktitle, settasktitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
@@ -60,8 +61,11 @@ function Addtasks() {
     settasktitle("");
   }
 
+
+
+
   return (
-    <div className="">
+    <div >
       <Toaster />
       <Nav user={user} />
 
