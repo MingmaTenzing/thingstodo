@@ -190,20 +190,20 @@ const user = useSelector(selectUser)
 
           <Carousel showThumbs={false} showStatus={false} autoPlay={true} interval={4000} className="p-4 md:p-0  " >
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
-              <Image src={review} width={400} height={400}  alt='' className='w-10' />
+              <Image  loading="eager"  src={review} width={400} height={400}  alt='' className='w-10' />
             </div>
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
-              <Image src={review1} width={400} height={400} alt=''  className='w-10' />
+              <Image  loading="eager" src={review1} width={400} height={400} alt=''  className='w-10' />
             </div>
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
-              <Image src={review2} width={400} height={400}  alt='' className='w-10' />
+              <Image loading="eager"  src={review2} width={400} height={400}  alt='' className='w-10' />
             </div>
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
-              <Image src={review3} width={400} height={400} alt ='' className='w-10' />
+              <Image  loading="eager" src={review3} width={400} height={400} alt ='' className='w-10' />
             </div>
             
             <div className="w-[300px] m-auto rounded-lg border overflow-hidden">
-              <Image src={review4} width={400} height={400} alt='' className='w-10' />
+              <Image loading="eager" src={review4} width={400} height={400} alt='' className='w-10' />
             </div>
             
             
