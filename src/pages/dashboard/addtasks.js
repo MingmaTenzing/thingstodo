@@ -69,7 +69,7 @@ function Addtasks() {
       <Toaster />
       <Nav user={user} />
 
-      <main className=" space-y-8 mt-10 p-4 py-3 mx-4   shadow-lg border md:m-auto rounded-3xl bg-slate-100 md:w-[900px] md:flex md:mt-20">
+      <main className=" space-y-8 mt-10  p-4 py-3 mx-4   shadow-lg border md:m-auto rounded-3xl bg-slate-100 md:w-[800px]  md:flex md:mt-4">
         <div className=" hidden md:flex md:justify-center">
           <Image
             src={addtaskimg}

@@ -40,11 +40,11 @@ function Nav( {user} ) {
       <div className="flex items-center space-x-4 ">
       <Link href={"/"} >  <Image src={biglogo} alt="logo" className="w-[90px] md:w-[100px] " /> </Link>
         <div className="md:flex hidden space-x-3 text-sm cursor-pointer">
-          <p>Home</p>
-          <p>Product</p>
-          <p>Pricing</p>
-          <p>Resources</p>
-          <p>Contact Us</p>
+          <p   className=" hover:underline underline-offset-4" >Home</p>
+          <p className=" hover:underline  underline-offset-4"  >Product</p>
+          <p className=" hover:underline  underline-offset-4"  >Pricing</p>
+          <p  className=" hover:underline  underline-offset-4" >Resources</p>
+          <p  className=" hover:underline  underline-offset-4" >Contact Us</p>
         </div>
       </div>
       <div className="flex space-x-2">
@@ -57,7 +57,7 @@ function Nav( {user} ) {
           >
             {
               <p className="bg-thingstodo py-1.5 px-3  rounded-full ">
-                {user.displayName}
+                {user.displayName[0].toUpperCase()}
               </p>
             }
           </div>

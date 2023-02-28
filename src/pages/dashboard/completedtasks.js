@@ -7,6 +7,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import TimeAgo from "react-timeago";
+import emptytasks from "../../assests/emptycomplete.svg";
 
 import { copydata } from "@/assests/copydata";
 import CompleteTemplate from "@/components/CompleteTemplate";
@@ -14,6 +15,7 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 import Loading from "@/components/Loading";
+import Image from "next/image";
 
 function CompletedTasks() {
   const [userID, setUserID] = useState("");
@@ -56,16 +58,32 @@ function CompletedTasks() {
       setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       setCompletedTasks(data.filter((task) => task.status === "completed"));
       setLoading(false);
-      
+    
     }
     getPostByUid();
   }, [userID, completedTasks]);
+
+  const test = 0
 
   return (
     <div>
       <Nav user={user} />
 
       <main className="mt-5">
+
+        {test === 0 ? ( <div className="flex flex-col items-center space-y-8 mt-10 ">
+              <div className="space-y-3">
+              <h1 className="text-center w-[340px] sm:w-[500px] text-[20px] font-[700] "> You haven't completed any tasks at the moment</h1>
+              <h1 className="text-center w-[340px] sm:w-[500px]  text-sm font-light"> Add tasks to get started</h1>
+              </div>
+              <div>
+              <button className="bg-thingstodo text-white px-3 py-2  text-sm rounded-xl " onClick={() => router.push("/dashboard/addtasks")}> Add Tasks</button>
+           </div>
+           <div>
+            <Image src={emptytasks} alt='wating' width={400} height={200} className="w-[300px] mt-10 " />
+            </div>
+           
+            </div>):(<>
         <h1 className="text-center font-bold text-[25px]">
           Your completed <span className="text-thingstodo"> tasks </span>{" "}
         </h1>
@@ -80,7 +98,9 @@ function CompletedTasks() {
               <CompleteTemplate key={task.id} task={task} />
             ))}
           </div>
-        )}
+        )}</>)}
+
+
       </main>
 
       <BottomNavigationBar data={data} />
