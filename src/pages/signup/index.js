@@ -9,6 +9,7 @@ import { blueGrey } from "@mui/material/colors";
 import Link from "next/link";
 import { login } from "slices/userSlice";
 import { useDispatch } from "react-redux";
+import Head from "next/head";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +50,13 @@ const dispatch = useDispatch();
 
   return (
     <div>
+      
+      <Head>
+        <title>Sign Up</title>
+        <meta name="description" content="Thingstodo Signup User" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logosm.png" />
+      </Head>
       <div className="flex flex-col items-center pt-[100px]">
         <div className="flex flex-col items-center space-y-5 mb-5 ">
        <Link href={"/"} >  <Image src={logo} alt="thingstodo logo" width={200} height={200}  className='cursor-pointer'/> </Link>

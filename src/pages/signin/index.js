@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { login } from "slices/userSlice";
 import { useDispatch } from "react-redux";
+import Head from "next/head";
 
 function SignIn() {
   const [loading, setLoading] = useState(false);
@@ -46,6 +47,13 @@ function SignIn() {
 
   return (
     <div>
+      
+      <Head>
+        <title>Sign In</title>
+        <meta name="description" content="Thingstodo Web Application Sign in" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logosm.png" />
+      </Head>
       <div className="flex flex-col items-center pt-[100px]">
         <div className="flex flex-col items-center space-y-5 mb-5 ">
          <Link href={"/"}>  <Image src={logo} alt="thingstodo logo" width={200} height={200}  className=' cursor-pointer'/>  </Link>

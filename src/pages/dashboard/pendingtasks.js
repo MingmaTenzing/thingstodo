@@ -18,6 +18,7 @@ import { useLocalStorage, useSessionStorage } from "usehooks-ts";
 import { count } from "slices/pendingTasksSlice";
 import Loading from "@/components/Loading";
 import Image from "next/image";
+import Head from "next/head";
 
 function Pendingtasks() {
   const ref = useRef(null);
@@ -76,6 +77,13 @@ function Pendingtasks() {
 
   return (
     <div>
+      
+      <Head>
+        <title>Pending Tasks</title>
+        <meta name="description" content="Thingstodo Web Application" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logosm.png" />
+      </Head>
       <Nav user={user} />
 
       <main className="mt-5">

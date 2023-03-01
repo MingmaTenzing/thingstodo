@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 import Loading from "@/components/Loading";
 import Image from "next/image";
+import Head from "next/head";
 
 function CompletedTasks() {
   const [userID, setUserID] = useState("");
@@ -67,6 +68,13 @@ function CompletedTasks() {
 
   return (
     <div>
+      
+      <Head>
+        <title>CompletedTasks</title>
+        <meta name="description" content="Thingstodo Web Application" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logosm.png" />
+      </Head>
       <Nav user={user} />
 
       <main className="mt-5">

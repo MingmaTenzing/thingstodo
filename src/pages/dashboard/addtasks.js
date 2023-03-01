@@ -11,6 +11,7 @@ import { Router, useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser, signoutuser } from "slices/userSlice";
 import { count } from "slices/pendingTasksSlice";
+import Head from "next/head";
 
 function Addtasks() {
   const user = useSelector(selectUser);
@@ -22,6 +23,7 @@ function Addtasks() {
   const [taskDescription, setTaskDescription] = useState("");
 
   const router = useRouter();
+  const dispatch = useDispatch();
  
 
   useEffect(() => {
@@ -64,6 +66,13 @@ function Addtasks() {
 
   return (
     <div >
+      
+      <Head>
+        <title>Add Tasks</title>
+        <meta name="description" content="Thingstodo Web Application" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/logosm.png" />
+      </Head>
       <Toaster />
       <Nav user={user} />
 
