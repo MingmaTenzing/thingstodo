@@ -46,7 +46,7 @@ const user = useSelector(selectUser)
         
       } 
     });
-  }, []);
+  }, [user]);
 
 
   return (

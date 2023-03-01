@@ -15,7 +15,6 @@ import { count } from "slices/pendingTasksSlice";
 function Addtasks() {
   const user = useSelector(selectUser);
 
-  const [data, setData] = useState([]);
   const [userID, setUserID] = useState("");
 
 
@@ -23,8 +22,7 @@ function Addtasks() {
   const [taskDescription, setTaskDescription] = useState("");
 
   const router = useRouter();
-  const dispatch = useDispatch();
-
+ 
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {

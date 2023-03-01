@@ -79,11 +79,11 @@ function Pendingtasks() {
       <Nav user={user} />
 
       <main className="mt-5">
-        {pendingtasks.length === 0 ? (
+        { pendingtasks.length === 0 ?  (
           <>
             <div className="flex flex-col items-center space-y-8 mt-10 ">
               <div className="space-y-3">
-              <h1 className="text-center w-[340px] text-[20px] font-[700] "> No pending tasks at the moment</h1>
+              <h1 className="text-center w-[340px] text-[20px] font-[700] "> Feels lonely in here</h1>
               <h1 className="text-center w-[340px] text-sm font-light"> Add tasks to get started</h1>
               </div>
               <div>

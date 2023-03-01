@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 
 
-function index() {
+function Index() {
   const router = useRouter();
   router.push("/dashboard/addtasks")
   return (
@@ -11,4 +11,4 @@ function index() {
     </>
   )
 }
-export default index
+export default Index
