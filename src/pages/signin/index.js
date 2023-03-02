@@ -50,9 +50,7 @@ function SignIn() {
       
       <Head>
         <title>Sign In</title>
-        <meta name="description" content="Thingstodo Web Application Sign in" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logosm.png" />
+       
       </Head>
       <div className="flex flex-col items-center pt-[100px]">
         <div className="flex flex-col items-center space-y-5 mb-5 ">

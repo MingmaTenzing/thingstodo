@@ -32,6 +32,7 @@ import { login, logout, selectUser } from "slices/userSlice";
 export default function Home() {
 const user = useSelector(selectUser)
   const router = useRouter();
+  
   const dispatch  = useDispatch()
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -50,18 +51,16 @@ const user = useSelector(selectUser)
 
 
   return (
-    <div className="">
+    <div >
       <Toaster />
 
       <Head>
         <title>ThingsToDo</title>
-        <meta name="description" content="Thingstodo Web Application" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logosm.png" />
-      </Head>
-
       
-     <Nav user={user}/>
+      </Head>
+      <Nav user={user}/>
+      
+   
         {/* TIME MANAGEMENT SECTION */}
 
        <main className="p-4 ">
