@@ -27,7 +27,7 @@ function Nav( {user} ) {
        
 
         dispatch(signoutuser())
-        
+        router.push("/signin")
    
         
       })
