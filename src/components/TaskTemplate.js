@@ -8,7 +8,6 @@ import { useOnClickOutside } from "usehooks-ts";
 import { useRef } from "react";
 import { useLocalStorage } from 'usehooks-ts'
 import { useDispatch } from "react-redux";
-import { onclick } from "slices/clickedSlice";
 
 
 

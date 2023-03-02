@@ -25,7 +25,9 @@ function Nav( {user} ) {
     signOut(auth)
       .then(() => {
        
+
         dispatch(signoutuser())
+        
    
         
       })

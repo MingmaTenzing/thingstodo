@@ -80,9 +80,7 @@ function Pendingtasks() {
       <Nav user={user} />
 
       <main className="mt-5">
-        <h1 className="text-center font-bold text-[25px]">
-          Your pending <span className="text-thingstodo"> tasks </span>{" "}
-        </h1>
+       
         {loading ? (
           <>
             <Loading />
@@ -125,6 +123,9 @@ function Pendingtasks() {
               </>
             ) : (
               <>
+               <h1 className="text-center font-bold text-[25px]">
+          Your pending <span className="text-thingstodo"> tasks </span>{" "}
+        </h1>
                 <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
                   {data
                     .filter((task) => task.status === "pending")

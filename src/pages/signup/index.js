@@ -53,6 +53,8 @@ const dispatch = useDispatch();
       
       <Head>
         <title>Sign Up</title>
+        <link rel="icon" href="/logosm.png" />
+
       
       </Head>
       <div className="flex flex-col items-center pt-[100px]">

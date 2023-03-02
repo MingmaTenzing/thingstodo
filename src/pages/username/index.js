@@ -1,10 +1,13 @@
 import { auth } from "@/firebase/init"
 import { updateProfile } from "firebase/auth"
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ScaleLoader } from "react-spinners";
+import { login, selectUser } from "slices/userSlice";
 import logo from '../../assests/logoxl.png'
 
 
@@ -19,6 +22,9 @@ function CreateProfile() {
     const router = useRouter();
     console.log(userName, photoLink)
 
+    const user = useSelector(selectUser);
+    const dispatch = useDispatch();
+
 
 
 function addnameandImage(event) {
@@ -27,8 +33,15 @@ function addnameandImage(event) {
 
     updateProfile(auth.currentUser, {
         displayName: userName,
-        photoURL: photoLink
+        photoURL: photoLink,
     }).then (()=> {
+
+      dispatch(login({
+        uid: user.uid,
+        email: user.email,
+        displayName: userName,
+
+      }))
         console.log("Profile Updated");
         console.log(auth.currentUser);
         router.push("/dashboard/addtasks")
@@ -42,6 +55,11 @@ function addnameandImage(event) {
 
   return (
     <div>
+      <Head>
+        <title>Set UserName </title>
+        <link rel="icon" href="/logosm.png" />
+        
+      </Head>
     <div className="flex flex-col items-center pt-[100px]">
       <div className="flex flex-col items-center space-y-5 mb-5 ">
         <Image src={logo} alt="thingstodo logo" width={200} height={200} onClick={() => router.push('/')} className='cursor-pointer'/>
