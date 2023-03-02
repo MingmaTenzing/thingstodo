@@ -19,7 +19,6 @@ function Tasktemplate({ task }) {
 
 
   function taskCompleted() {
-    dispatch(onclick())
  
     
     const postRef = doc(db, 'tasks', task.id); 
@@ -61,7 +60,7 @@ function Tasktemplate({ task }) {
        
       
       
-        <button  onClick={taskCompleted} className="border text-sm   px-3 py-2 bg-thingstodo rounded-xl  text-white">
+        <button onClick={taskCompleted} className="border text-sm   px-3 py-2 bg-thingstodo rounded-xl  text-white">
           Done
         </button>
       </div>

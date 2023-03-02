@@ -62,7 +62,7 @@ function CompletedTasks() {
     getPostByUid();
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
   }, [userID, completedTasks]);
 
   return (
