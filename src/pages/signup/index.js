@@ -27,6 +27,7 @@ const dispatch = useDispatch();
 
     if (password !== confirmpassword) {
       setBorderRed(true);
+      setLoading(false);
     } else {
       createUserWithEmailAndPassword(auth, email, confirmpassword)
         .then((userCredential) => {
@@ -109,7 +110,7 @@ const dispatch = useDispatch();
                 <h1 className="text-sm"> Enter your password </h1>
                 <input
                   required
-                  type="text"
+                  type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="border  border-gray-200 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>
@@ -118,7 +119,7 @@ const dispatch = useDispatch();
                 <h1 className="text-sm"> Confirm your password </h1>
                 <input
                   required
-                  type="text"
+                  type="password"
                   onChange={(e) => setconfirmPassword(e.target.value)}
                   className="border border-gray-200 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>

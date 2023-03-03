@@ -103,6 +103,7 @@ function Addtasks() {
                 type="text"
                 required
                 value={tasktitle}
+                maxLength="100"
                 className="border  outline-none w-[300px] p-2 h-10 rounded-lg"
                 onChange={(e) => settasktitle(e.target.value)}
               ></input>
@@ -113,6 +114,7 @@ function Addtasks() {
               <input
                 type="text"
                 required
+                maxLength="350"
                 value={taskDescription}
                 className="border  outline-none p-2 w-[300px] h-[100px] rounded-lg"
                 onChange={(e) => setTaskDescription(e.target.value)}

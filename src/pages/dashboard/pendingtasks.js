@@ -68,7 +68,7 @@ function Pendingtasks() {
       getPostByUid();
       setTimeout(() => {
         setLoading(false);
-      },3000)
+      },2000)
    
   }, [userID, pendingtasks]);
 
@@ -126,7 +126,7 @@ function Pendingtasks() {
                <h1 className="text-center font-bold text-[25px]">
           Your pending <span className="text-thingstodo"> tasks </span>{" "}
         </h1>
-                <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
+                <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:space-x-4">
                   {data
                     .filter((task) => task.status === "pending")
                     .map((task) => (
