@@ -43,8 +43,7 @@ const dispatch = useDispatch();
           router.push("/username");
         })
         .catch((error) => {
-          const erroCode = error.code;
-          const errorMessage = error.message;
+          console.log(error.code);
         });
     }
   }
@@ -90,6 +89,7 @@ const dispatch = useDispatch();
                 <input
                   required
                   type="password"
+                  minLength={8}
                   onChange={(e) => setPassword(e.target.value)}
                   className="border border-red-600 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>
@@ -99,6 +99,7 @@ const dispatch = useDispatch();
                 <input
                   required
                   type="password"
+                  minLength={8}
                   onChange={(e) => setconfirmPassword(e.target.value)}
                   className=" border border-red-600 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>
@@ -111,6 +112,7 @@ const dispatch = useDispatch();
                 <input
                   required
                   type="password"
+                  minLength={8}
                   onChange={(e) => setPassword(e.target.value)}
                   className="border  border-gray-200 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>
@@ -120,6 +122,7 @@ const dispatch = useDispatch();
                 <input
                   required
                   type="password"
+                  minLength={8}
                   onChange={(e) => setconfirmPassword(e.target.value)}
                   className="border border-gray-200 outline-none px-5 py-2 text-sm rounded-lg"
                 ></input>

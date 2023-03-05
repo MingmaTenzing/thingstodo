@@ -31,24 +31,15 @@ function Pendingtasks() {
 
   const user = useSelector(selectUser);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserID(user.uid);
-        dispatch(
-          login({
-            uid: user.uid,
-            email: user.email,
-            displayName: user.displayName,
-          })
-        );
-      } else {
-        dispatch(signoutuser());
-        router.push("/signin");
-      }
-    });
-  }, []);
+useEffect(() => {
+  if (user) {
+    setUserID(user.uid);
+  }
+  else {
+    router.push('/signin')
+  }
+
+},[])
 
   useEffect(() => {
   
@@ -63,6 +54,7 @@ function Pendingtasks() {
         setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
 
         setPendingTasks(data.filter((task) => task.status === "pending"));
+        
       }
       
       getPostByUid();

@@ -59,7 +59,8 @@ function Nav( {user} ) {
           >
             {
               <p className="bg-thingstodo py-1.5 px-3  rounded-full ">
-                {user.displayName[0].toUpperCase()}
+                { user.displayName[0].toUpperCase() }
+
               </p>
             }
           </div>

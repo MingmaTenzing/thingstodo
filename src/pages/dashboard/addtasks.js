@@ -17,32 +17,52 @@ function Addtasks() {
   const user = useSelector(selectUser);
 
   const [userID, setUserID] = useState("");
-
+  const [pendingtasks, setPendingTasks] = useState();
+  const [data , setData] = useState([]);
+  
+  
 
   const [tasktitle, settasktitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
 
   const router = useRouter();
   const dispatch = useDispatch();
- 
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserID(user.id);
-        dispatch(
-          login({
-            uid: user.uid,
-            email: user.email,
-            displayName: user.displayName,
-          })
-        );
-      } else {
-        dispatch(signoutuser());
-        router.push("/signin");
-      }
-    });
-  }, []);  
+    if (user) {
+      setUserID(user.uid);
+      
+    }
+    else {
+      router.push("/signin")
+    }
+
+  },[])
+ 
+
+  
+  useEffect(() => {
+  
+    async function getPostByUid() {
+      const postCollectionRef = await query(
+        collection(db, "tasks"),
+        where("uid", "==", userID)
+      );
+
+      const { docs } = await getDocs(postCollectionRef);
+
+      setData(docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+
+      setPendingTasks(data.filter((task) => task.status === "pending"));
+
+      
+    }
+    
+    getPostByUid();
+    
+ 
+}, [userID, pendingtasks]);
+
 
   async function addTask(event) {
     event.preventDefault();

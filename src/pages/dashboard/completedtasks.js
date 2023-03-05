@@ -28,25 +28,16 @@ function CompletedTasks() {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserID(user.uid);
-
-        dispatch(
-          login({
-            uid: user.uid,
-            email: user.email,
-            displayName: user.displayName,
-          })
-        );
-      } else {
-        dispatch(signoutuser());
-        router.push("/signin");
-      }
-    });
-  }, []);
-
+ useEffect(() => {
+  if (user) {
+    setUserID(user.uid);
+    
+  }
+  else {
+    router.push("/signin");
+    
+  }
+ })
   useEffect(() => {
     async function getPostByUid() {
       const postCollectionRef = await query(
@@ -116,7 +107,7 @@ function CompletedTasks() {
                   Your completed{" "}
                   <span className="text-thingstodo"> tasks </span>{" "}
                 </h1>
-                <div className=" mt-5 p-4 mb-20 flex flex-col items-center  sm:flex sm:flex-row sm:items-start  sm:flex-wrap    sm:justify-center sm:space-x-4">
+                <div className=" mt-5 p-4 mb-20 flex flex-col items-center  sm:flex sm:flex-row sm:items-start  sm:flex-wrap    sm:space-x-4">
             {completedTasks.map((task) => (
               <CompleteTemplate key={task.id} task={task} />
             ))}
