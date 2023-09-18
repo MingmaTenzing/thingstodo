@@ -120,7 +120,7 @@ useEffect(() => {
         </h1>
                 <div className=" mt-5 p-4 mb-20 sm:flex sm:items-start  sm:flex-wrap    sm:space-x-4">
                   {data
-                    .filter((task) => task.status === "pending")
+                    .filter((task) => task.status === "pending").sort((a,b) => new Date(b.time).getTime() - new Date(a.time).getTime())
                     .map((task) => (
                       <TaskTemplate key={task.id} task={task} />
                     ))}

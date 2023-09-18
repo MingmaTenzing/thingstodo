@@ -108,7 +108,7 @@ function CompletedTasks() {
                   <span className="text-thingstodo"> tasks </span>{" "}
                 </h1>
                 <div className=" mt-5 p-4 mb-20 flex flex-col items-center  sm:flex sm:flex-row sm:items-start  sm:flex-wrap    sm:space-x-4">
-            {completedTasks.map((task) => (
+            {completedTasks.sort((a,b) => new Date(b.time).getTime() - new Date(a.time).getTime()).map((task) => (
               <CompleteTemplate key={task.id} task={task} />
             ))}
           </div>
